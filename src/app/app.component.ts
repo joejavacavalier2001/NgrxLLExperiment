@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { State } from './reducers';
+import { State, changeStringAction } from './reducers';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -16,5 +16,9 @@ export class AppComponent implements OnInit{
 
 	ngOnInit() {
 		this.currentDisplayString = this.store.select('stringChangers');
-  	}
+	}
+
+	changeStringToTest2() {
+		this.store.dispatch(changeStringAction({differentString: 'Test2'}));
+	}
 }
